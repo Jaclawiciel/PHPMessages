@@ -1,10 +1,16 @@
 <html>
   <head>
-    <title>PHP <3</title>
+    <title>PHPMessages</title>
     <link rel="stylesheet" href="../css/main.css" type="text/css">
   </head>
   <body>
-    <h1>Test</h1>
+    <div>
+      <h1>PHPMessages</h1>
+      <h2>All messages</h2>
+      <form>
+        <textarea readonly>Test</textarea>
+      </form>
+    </div>
 
     <?php include '../php/test.php';?>
   </body>

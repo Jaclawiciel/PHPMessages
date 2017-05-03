@@ -11,9 +11,33 @@ body {
   width: 100%;
 }
 
+a {
+  color: #9B9B9B;
+  text-decoration: none;
+}
+
+/* unvisited link */
+a:link {
+}
+
+/* visited link */
+a:visited {
+  opacity: 0.5;
+}
+
+/* mouse over link */
+a:hover {
+}
+
+/* selected link */
+a:active {
+}
+
+
+
 /* *** CONTAINER *** */
 #content {
-  width: 90%;
+  max-width: 360px;
   margin: 10px auto 0;
   padding: 0;
   border-style: solid;
@@ -22,26 +46,143 @@ body {
   box-shadow: 0 0 20px 1px #8b8b8b;
 }
 
+
+
 /* *** HEADER *** */
 #header {
   margin: 5px auto 0;
 }
 
-#header h1, h2 {
+#header h1 {
   font-weight: 100;
   margin: 0;
   padding: 0;
 }
 
 #header h1 {
-  margin: 5px
+  margin: 5px auto 15px;
+  letter-spacing: 5px;
+  text-shadow: 0px 0px 30px;
 }
 
-/* *** FORM *** */
+
+
+/* *** MESSAGES *** */
+#messagesContent, #adminContent {
+  padding-bottom: 15px;
+}
+
 form {
-
+  width: 90%;
+  margin: 0 auto;
+  padding: 10px 2px 20px;
+  background-color: #236BF6;
+  border-radius: 10px;
+  box-shadow: 0px 5px 10px 1px;
 }
-/* *** BUTTON LINK *** */
-#buttonLink {
 
+form h2 {
+  font-weight: 100;
+  font-size: 24px;
+  margin: 0 auto 3px;
+  padding: 0;
+  color: #fff;
+  letter-spacing: 3px;
+  text-shadow: 0px 0px 30px;
+}
+
+form textarea {
+  margin: 0 auto 10px;
+  padding: 5px;
+  border-color: #fff;
+  border-radius: 20px 20px 20px 0px;
+  font-weight: 200;
+  letter-spacing: 0px;
+  color: #000;
+  line-height: 16px;
+  text-align: left;
+  display: block;
+}
+
+@keyframes textHover {
+  0% {transform: rotate(0deg);}
+  25% {transform: rotate(2deg);}
+  50% {transform: rotate(-2deg);}
+  75% {transform: rotate(2deg);}
+  100% {transform: rotate(0deg);}
+}
+
+form textarea:hover {
+  animation-name: textHover;
+  animation-duration: 0.3s;
+  animation-timing-function: linear;
+}
+
+/* *** LOGIN *** */
+
+#loginContent {
+  background-color: #fff;
+  border-color: #236BF6;
+  border-width: 3px;
+  border-style: solid;
+  margin: 0 auto 15px;
+}
+
+#loginContent h2 {
+  margin: 0 auto 10px;
+  color: #236BF6;
+  text-shadow: 0 0;
+}
+
+#loginContent input {
+  display: block;
+  margin: 0 auto 10px;
+  padding: 5px 5px 1px;
+  outline: none;
+  border: none;
+  border-bottom: 2px solid #236BF6;
+  color: #236BF6;
+
+  font-size: 16px;
+}
+
+#loginContent input::placeholder {
+  color: #326BF6;
+  opacity: 0.2
+}
+
+/* *** ADMIN PANEL *** */
+
+/* *** NEW MESSAGE *** */
+#newMessageContent {
+  margin-bottom: 15px;
+}
+
+#newMessageContent form textarea:hover {
+  animation-name: none;
+}
+
+
+/* *** BUTTON LINK *** */
+.button {
+  display: inline-block;
+  margin: 15px auto 0;
+  padding: 2px 8px;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 7px;
+  border-color: #236BF6;
+  background-color: #fff;
+  color: #236BF6;
+
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.button:hover {
+  background-color: #236BF6;
+  color: #fff;
+}
+
+.blueButton:hover {
+  border-color: #fff;
 }

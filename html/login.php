@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
   <head>
     <title>PHPMessages</title>
@@ -8,19 +9,12 @@
       <div id="header">
         <h1>PHPMessages</h1>
       </div>
-      <form>
-        <h2>All messages</h2>
-        <textarea readonly cols="45" rows="4" name="message">
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut porttitor erat in massa posuere, eu porta mi lobortis. Proin ac velit quis justo ultrices malesuada id quis mi.
-        </textarea>
-        <textarea readonly cols="45" rows="4" name="message">
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut porttitor erat in massa posuere, eu porta mi lobortis. Proin ac velit quis justo ultrices malesuada id quis mi.
-        </textarea>
-        <textarea readonly cols="45" rows="4" name="message">
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut porttitor erat in massa posuere, eu porta mi lobortis. Proin ac velit quis justo ultrices malesuada id quis mi.
-        </textarea>
+      <form id="loginContent">
+        <h2>Admin Panel</h2>
+        <input type="text" name="login" placeholder="Login" autofocus>
+        <input type="password" name="password" placeholder="Password">
+        <a class="button" href="admin.php">Log in</a>
       </form>
-      <a id="buttonLink" href="admin.php">Admin Panel</a>
     </div>
   </body>
 </html>

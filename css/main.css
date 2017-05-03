@@ -1,8 +1,47 @@
+/* *** GENERAL *** */
+
+@import url('https://fonts.googleapis.com/css?family=Lato:100,300,300i,400,400i,700,700i&subset=latin-ext');
+
 body {
+  font-family: 'Lato', sans-serif;
+  color: #878787;
   text-align: center;
-  color: tomato;
+  margin: 0;
+  padding: 0;
+  width: 100%;
 }
 
-img {
-  width: 400px;
+/* *** CONTAINER *** */
+#content {
+  width: 90%;
+  margin: 10px auto 0;
+  padding: 0;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 8px;
+  box-shadow: 0 0 20px 1px #8b8b8b;
+}
+
+/* *** HEADER *** */
+#header {
+  margin: 5px auto 0;
+}
+
+#header h1, h2 {
+  font-weight: 100;
+  margin: 0;
+  padding: 0;
+}
+
+#header h1 {
+  margin: 5px
+}
+
+/* *** FORM *** */
+form {
+
+}
+/* *** BUTTON LINK *** */
+#buttonLink {
+
 }

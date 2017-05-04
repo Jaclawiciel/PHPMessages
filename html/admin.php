@@ -1,3 +1,13 @@
+<?php
+  session_start();
+  $login = $_SESSION["login"];
+  $password = $_SESSION["password"];
+
+  if ($login != "Jacek" && $password != "admin123") {
+    $_SESSION["status"] = 401;
+    header('Location: login.php');
+  }
+?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -12,15 +22,26 @@
       <div id="adminContent">
         <form>
           <h2>All messages</h2>
-          <textarea readonly cols="45" rows="4" name="message">
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut porttitor erat in massa posuere, eu porta mi lobortis. Proin ac velit quis justo ultrices malesuada id quis mi.
-          </textarea>
-          <textarea readonly cols="45" rows="4" name="message">
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut porttitor erat in massa posuere, eu porta mi lobortis. Proin ac velit quis justo ultrices malesuada id quis mi.
-          </textarea>
-          <textarea readonly cols="45" rows="4" name="message">
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut porttitor erat in massa posuere, eu porta mi lobortis. Proin ac velit quis justo ultrices malesuada id quis mi.
-          </textarea>
+          <div class="messagesWithDelete">
+            <div class="messageWithDelete">
+              <textarea readonly cols="20" rows="4" name="message">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut porttitor erat in massa posuere, eu porta mi lobortis. Proin ac velit quis justo ultrices malesuada id quis mi.
+              </textarea>
+              <button class="button deleteButton">Delete</button>
+            </div>
+            <div class="messageWithDelete">
+              <textarea readonly cols="20" rows="4" name="message">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut porttitor erat in massa posuere, eu porta mi lobortis. Proin ac velit quis justo ultrices malesuada id quis mi.
+              </textarea>
+              <button class="button deleteButton">Delete</button>
+            </div>
+            <div class="messageWithDelete">
+              <textarea readonly cols="20" rows="4" name="message">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut porttitor erat in massa posuere, eu porta mi lobortis. Proin ac velit quis justo ultrices malesuada id quis mi.
+              </textarea>
+              <button class="button deleteButton">Delete</button>
+            </div>
+          </div>
           <a class="button blueButton" href="NewMessage.php">Add new message</a>
         </form>
         <a class="button" href="index.php">Log out</a>

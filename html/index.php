@@ -27,3 +27,7 @@
     </div>
   </body>
 </html>
+<?php
+  session_start();
+  $_SESSION["status"] = 200;
+?>

@@ -6,6 +6,20 @@
   if ($login != "Jacek" && $password != "admin123") {
     $_SESSION["status"] = 401;
     header('Location: login.php');
+  } elseif ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $path = "../xml";
+    $messageNumber = 1;
+    if ($handle = opendir($path)) {
+      while (false !== ($file = readdir($handle))) {
+        if ('.' === $file) continue;
+        if ('..' === $file) continue;
+        if ('.DS_Store' === $file) continue;
+        if (isset($_POST[$messageNumber])) {
+          unlink("../xml/$file");
+        }
+        $messageNumber++;
+      }
+    }
   }
 ?>
 <!DOCTYPE html>
@@ -20,31 +34,14 @@
         <h1>PHPMessages</h1>
       </div>
       <div id="adminContent">
-        <form>
+        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
           <h2>All messages</h2>
           <div class="messagesWithDelete">
-            <div class="messageWithDelete">
-              <textarea readonly cols="20" rows="4" name="message">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut porttitor erat in massa posuere, eu porta mi lobortis. Proin ac velit quis justo ultrices malesuada id quis mi.
-              </textarea>
-              <button class="button deleteButton">Delete</button>
-            </div>
-            <div class="messageWithDelete">
-              <textarea readonly cols="20" rows="4" name="message">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut porttitor erat in massa posuere, eu porta mi lobortis. Proin ac velit quis justo ultrices malesuada id quis mi.
-              </textarea>
-              <button class="button deleteButton">Delete</button>
-            </div>
-            <div class="messageWithDelete">
-              <textarea readonly cols="20" rows="4" name="message">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut porttitor erat in massa posuere, eu porta mi lobortis. Proin ac velit quis justo ultrices malesuada id quis mi.
-              </textarea>
-              <button class="button deleteButton">Delete</button>
-            </div>
+            <?php include '../php/messagesShowerWithDelete.php'; ?>
           </div>
           <a class="button blueButton" href="NewMessage.php">Add new message</a>
         </form>
-        <a class="button" href="index.php">Log out</a>
+        <a class="button" href="index.php?logout=true">Log out</a>
       </div>
     </div>
   </body>

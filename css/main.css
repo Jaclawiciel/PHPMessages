@@ -32,6 +32,10 @@ a:hover {
 a:active {
 }
 
+textarea {
+  resize: none;
+  min-height: 50px;
+}
 
 
 /* *** BUTTON *** */
@@ -121,17 +125,19 @@ form h2 {
   text-shadow: 0px 0px 30px;
 }
 
-form textarea {
+form textarea, .messageWithDelete textarea {
   margin: 0 auto 10px;
   padding: 5px;
   border-color: #fff;
   border-radius: 20px 20px 20px 0px;
   font-weight: 200;
   letter-spacing: 0px;
-  color: #000;
-  line-height: 16px;
+  color: #555;
+  line-height: 15px;
   text-align: left;
   display: block;
+  font-weight: 500;
+  font-style: italic;
 }
 
 @keyframes textHover {
@@ -147,6 +153,24 @@ form textarea:hover {
   animation-duration: 0.3s;
   animation-timing-function: linear;
 }
+
+@keyframes disappear {
+  0% { opacity: 1; }
+  50% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.logOutMessage {
+  font-weight: 400;
+  font-size: 16px;
+  color: forestgreen;
+  animation: 1s ease-out 1s 2 disappear;
+}
+
 
 /* *** LOGIN *** */
 
@@ -178,7 +202,7 @@ form textarea:hover {
 
 #loginContent .credentials::placeholder {
   color: #326BF6;
-  opacity: 0.2
+  opacity: 0.2;
 }
 
 /* LOGIN VALIDATION */
@@ -224,6 +248,11 @@ form textarea:hover {
 
 .messageWithDelete textarea {
   flex-grow: 9;
+  padding: 5px 10px;
+}
+
+#logOutButton {
+  display: block;
 }
 
 
@@ -233,6 +262,21 @@ form textarea:hover {
   margin-bottom: 15px;
 }
 
+#newMessageContent textarea {
+  transition: transform 0.5s, border-radius 0.5s;
+}
+
+#newMessageContent textarea:focus {
+  outline: none;
+  transform: scale(1.05);
+  border-radius: 0px;
+}
+
 #newMessageContent form textarea:hover {
   animation-name: none;
+}
+
+#newMessageContent form textarea::placeholder {
+  color: #000;
+  opacity: 0.3;
 }

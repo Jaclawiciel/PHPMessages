@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -36,7 +37,9 @@
   </body>
 </html>
 <?php
-    session_start();
+    if (@$_SESSION['login'] == "Jacek" && $_SESSION['password'] == "admin123") {
+      header('Location: admin.php');
+    }
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $login = $_POST["login"];
       $password = $_POST["password"];

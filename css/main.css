@@ -22,7 +22,6 @@ a:link {
 
 /* visited link */
 a:visited {
-  opacity: 0.5;
 }
 
 /* mouse over link */
@@ -33,7 +32,42 @@ a:hover {
 a:active {
 }
 
+textarea {
+  resize: none;
+  min-height: 50px;
+}
 
+
+/* *** BUTTON *** */
+.button {
+  display: inline-block;
+  margin: 15px auto 0;
+  padding: 2px 8px;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 7px;
+  border-color: #236BF6;
+  background-color: #fff;
+  color: #236BF6;
+
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+
+  font-size: 16px;
+}
+
+.button:hover {
+  background-color: #236BF6;
+  color: #fff;
+}
+
+.blueButton:hover {
+  border-color: #fff;
+}
+
+.deleteButton:hover {
+  background-color: red;
+  border-color: white;
+}
 
 /* *** CONTAINER *** */
 #content {
@@ -91,17 +125,19 @@ form h2 {
   text-shadow: 0px 0px 30px;
 }
 
-form textarea {
+form textarea, .messageWithDelete textarea {
   margin: 0 auto 10px;
   padding: 5px;
   border-color: #fff;
   border-radius: 20px 20px 20px 0px;
   font-weight: 200;
   letter-spacing: 0px;
-  color: #000;
-  line-height: 16px;
+  color: #555;
+  line-height: 15px;
   text-align: left;
   display: block;
+  font-weight: 500;
+  font-style: italic;
 }
 
 @keyframes textHover {
@@ -117,6 +153,24 @@ form textarea:hover {
   animation-duration: 0.3s;
   animation-timing-function: linear;
 }
+
+@keyframes disappear {
+  0% { opacity: 1; }
+  50% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.logOutMessage {
+  font-weight: 400;
+  font-size: 16px;
+  color: forestgreen;
+  animation: 1s ease-out 1s 2 disappear;
+}
+
 
 /* *** LOGIN *** */
 
@@ -134,7 +188,7 @@ form textarea:hover {
   text-shadow: 0 0;
 }
 
-#loginContent input {
+#loginContent .credentials {
   display: block;
   margin: 0 auto 10px;
   padding: 5px 5px 1px;
@@ -146,43 +200,83 @@ form textarea:hover {
   font-size: 16px;
 }
 
-#loginContent input::placeholder {
+#loginContent .credentials::placeholder {
   color: #326BF6;
-  opacity: 0.2
+  opacity: 0.2;
+}
+
+/* LOGIN VALIDATION */
+#loginContent .negativeValidation {
+  border-bottom-color: red;
+}
+
+#loginError, #accessDenied {
+  font-weight: 200;
+  color: red;
+}
+
+.hide {
+  display: none;
 }
 
 /* *** ADMIN PANEL *** */
+
+.messageWithDelete textarea, .messageWithDelete .deleteButton {
+  margin: 0 5px;
+  padding: 0;
+}
+
+#adminContent .messagesWithDelete {
+}
+
+#adminContent .messageWithDelete {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch;
+  align-content: space-between;
+}
+
+.messageWithDelete {
+  margin: 0 0 10px;
+  padding: 5px;
+}
+
+.messageWithDelete .deleteButton {
+  flex-grow: 1;
+}
+
+.messageWithDelete textarea {
+  flex-grow: 9;
+  padding: 5px 10px;
+}
+
+#logOutButton {
+  display: block;
+}
+
+
 
 /* *** NEW MESSAGE *** */
 #newMessageContent {
   margin-bottom: 15px;
 }
 
+#newMessageContent textarea {
+  transition: transform 0.5s, border-radius 0.5s;
+}
+
+#newMessageContent textarea:focus {
+  outline: none;
+  transform: scale(1.05);
+  border-radius: 0px;
+}
+
 #newMessageContent form textarea:hover {
   animation-name: none;
 }
 
-
-/* *** BUTTON LINK *** */
-.button {
-  display: inline-block;
-  margin: 15px auto 0;
-  padding: 2px 8px;
-  border-style: solid;
-  border-width: 2px;
-  border-radius: 7px;
-  border-color: #236BF6;
-  background-color: #fff;
-  color: #236BF6;
-
-  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
-}
-
-.button:hover {
-  background-color: #236BF6;
-  color: #fff;
-}
-
-.blueButton:hover {
-  border-color: #fff;
+#newMessageContent form textarea::placeholder {
+  color: #000;
+  opacity: 0.3;
 }
